@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<head>
+    <title>Virtual Assamese Keyboard</title>
+</head>
+<style>
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button {
+    background-color: rgb(104, 104, 255);
+    border: none;
+    display: inline-block;
+    padding: .5rem 1rem;
+    margin: .3rem;
+    font-size: 1.3rem;
+    color: #00000B;
+    width: 50px;
+    height: 50px;
+    border-radius: .5rem;
+}
+.delete,
+.shift,
+.space {
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+.delete { width: 100px; }
+.shift { width: 70px; }
+.space { width: 350px;}
+
+.textarea {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    padding: .5rem;
+    font-size: 1.2rem;
+    outline: none;
+    border: 2px solid rgb(104, 104, 255);
+    border-radius: .5rem;
+}
+
+
+.upper { text-transform: uppercase; }
+
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="textarea">
+            <textarea></textarea>
+        </div>
+        <div class="keyboard">
+            <div class="row">
+                <button class="btn">১</button>
+                <button class="btn">২</button>
+                <button class="btn">৩</button>
+                <button class="btn">৪</button>
+                <button class="btn">৫</button>
+                <button class="btn">৬</button>
+                <button class="btn">৭</button>
+                <button class="btn">৮</button>
+                <button class="btn">৯</button>
+                <button class="btn">০</button>
+                <button class="delete">Delete</button>
+            </div>
+            <div class="row">
+                <button class="btn">অ</button>
+                <button class="btn">আ</button>
+                <button class="btn">ই</button>
+                <button class="btn">ঈ</button>
+                <button class="btn">উ</button>
+                <button class="btn">ঊ</button>
+                <button class="btn">ঋ</button>
+                <button class="btn">এ</button>
+                <button class="btn">ঐ</button>
+                <button class="btn">ও</button>
+                <button class="btn">ঔ</button>
+            </div>
+            <div class="row">
+                <button class="btn">ক</button>
+                <button class="btn">খ</button>
+                <button class="btn">গ</button>
+                <button class="btn">ঘ</button>
+                <button class="btn">ঙ</button>
+                <button class="btn">চ</button>
+                <button class="btn">ছ</button>
+                <button class="btn">জ</button>
+                <button class="btn">ঝ</button>
+                <button class="btn">ঞ</button>
+                <button class="btn">ট</button>
+                <button class="btn">ঠ</button>
+                <button class="btn">ড</button>
+                <button class="btn">ঢ</button>
+                <button class="btn">ণ</button>
+                <button class="btn">ত</button>
+                <button class="btn">থ</button>
+                <button class="btn">দ</button>
+                <button class="btn">ধ</button>
+            </div>
+            <div class="row">
+                <button class="btn">ন</button>
+                <button class="btn">প</button>
+                <button class="btn">ফ</button>
+                <button class="btn">ব</button>
+                <button class="btn">ভ</button>
+                <button class="btn">ম</button>
+                <button class="btn">য</button>
+                <button class="btn">ৰ</button>
+                <button class="btn">ল</button>
+                <button class="btn">ৱ</button>
+                <button class="btn">শ</button>
+                <button class="btn">ষ</button>
+                <button class="btn">স</button>
+                <button class="btn">হ</button>
+                <button class="btn">ক্ষ</button>
+                <button class="btn">ড়</button>
+                <button class="btn">ঢ়</button>
+                <button class="btn">য়</button>
+	</div>
+            <div class="row">
+                <button class="btn">,</button>
+                <button class="btn">.</button>
+                <button class="btn">|</button>
+                <button class="btn">?</button>
+                <button class="btn">ং</button>
+                <button class="btn">ঃ</button>
+                <button class="btn">ঁ</button> 
+                <button class="btn">্</button>   
+                <button class="btn">া</button>
+                <button class="btn">ি</button>
+                <button class="btn">ী </button>
+                <button class="btn">ু </button>
+                <button class="btn">ূ</button>
+                <button class="btn">ে</button>
+                <button class="btn">ৈ</button>
+                <button class="btn"> ো</button> 
+                <button class="btn"> ৌ</button>
+            </div>
+            <div class="row">
+                <button class="space">Space</button>
+            </div>
+        </div>
+    </div>
+<script>
+const buttons = document.querySelectorAll('.btn')
+const textarea = document.querySelector('textarea')
+const delete_btn = document.querySelector('.delete')
+const space_btn = document.querySelector('.space')
+
+let chars = []
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        textarea.value += btn.innerText
+        chars = textarea.value.split('')
+    })
+})
+
+delete_btn.addEventListener('click', () => {
+    chars.pop()
+    textarea.value = chars.join('')
+})
+
+space_btn.addEventListener('click', () => {
+    chars.push(' ')
+    textarea.value = chars.join('')
+})
+
+
+</script>
+    
+</body>
+</html>
